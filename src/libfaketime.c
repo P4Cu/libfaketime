@@ -1805,7 +1805,7 @@ int sem_timedwait(sem_t *sem, const struct timespec *abs_timeout)
 
     if (user_rate_set)
     {
-      timespecmul(&tdiff, user_rate, &timeadj);
+      timespecmul(&tdiff, 1.0 / user_rate, &timeadj);
     }
     else
     {
